@@ -13,13 +13,13 @@ public class Driver:User
 
     //methods
     //cosntructor
-
     public Driver(string name,string lastName,string typeDocument,string identificationNumber,string email,string phoneNumber,string Adreess,DateOnly bday,string licenesNumber, int drivingExperience ):
     base(name,lastName,typeDocument,identificationNumber,email,phoneNumber,Adreess,bday){
     LicenesNumber=licenesNumber;
     LicenseCategory=LicenseCategoryKind();
     DrivingExperience=drivingExperience;
     }
+//Selection Menu for the type of license the driver have
 public  string LicenseCategoryKind(){
     Console.WriteLine($@"
     Categoria de Licensia:
@@ -37,20 +37,21 @@ public  string LicenseCategoryKind(){
         LicenseCategoryKind();
         break;
     }
-    return "A2";
+    return "A2";// default case, doesn't happen but in hte remote case someone jumps this loop it will return A2 license
 }
 
 public void ShowDriverDetails(){
-        ShowDetails();
-        Console.WriteLine($"{LicenseCategory,10}{LicenesNumber,10}{DrivingExperience}");
+    
+        ShowDetails();//because of his level of protection, you cant override this funcion, in my way to not find out losing time, i just callit and add what  i need
+        Console.WriteLine($"{LicenseCategory,10}{LicenesNumber,10}{DrivingExperience}");// adition at the end of the console line
     }
 
-//create a list that returns index of the driver
+//This is usefull for some searches
 public string DriverName(){
     return $"{Name+" "+LastName}";
 }
-
-public void DriversList(List<Driver> drivers){
+//this is used in the register of the drivers, and adding as object to de Vehicle objects
+public void DriversList(List<Driver> drivers){//merely visual function, but usefull for user interface
     foreach (var driver in drivers)
     {
         Console.WriteLine($"{drivers.IndexOf(driver)}{DriverName()}");

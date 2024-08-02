@@ -10,10 +10,10 @@ public static class UserOperations
     // class dedicated to the operations of the user in the user interface
     public static void CreateDriver(){
         Util.Title("Nuevo Conductor",ConsoleColor.DarkGreen);
-        //nombre
+        //Name
         Console.Write("Nombre del Conductor: ");
         string name= Exceptions.AntiEMptyorNull();
-        //apellido
+        //LastName
         Console.Write("Apellido: ");
         string lastName= Exceptions.AntiEMptyorNull();
         //Type of documet
@@ -51,10 +51,10 @@ public static class UserOperations
     }
     public static void Createcustomer(){
         Util.Title("Nuevo Conductor",ConsoleColor.DarkGreen);
-        //nombre
+        //Name
         Console.Write("Nombre del Conductor: ");
         string name= Exceptions.AntiEMptyorNull();
-        //apellido
+        //Last name
         Console.Write("Apellido: ");
         string lastName= Exceptions.AntiEMptyorNull();
         //Type of documet
@@ -63,7 +63,7 @@ public static class UserOperations
         //Document number
         Console.Write("Numero de Documento: ");
         string identificationNumber= Exceptions.AntiEMptyorNull();
-    // email
+        // email
         Console.Write("Email: ");
         string email= Exceptions.AntiEMptyorNull();
         //phone
@@ -77,15 +77,15 @@ public static class UserOperations
         string Adreess= Exceptions.AntiEMptyorNull().ToUpper();
         DateOnly bday= Exceptions.SafeDateonly();
         
-
-
-
+        //creation and adition to the list
         Database.Database.Customers.Add(new Customer(name,lastName,typeDocument,identificationNumber,email,preferedPaymentMethod,phone,Adreess,bday));
-        
+        //process succed
         Util.GreenText("Conductor registrado Exitosamente");
         Menues.ReturnToMainMenu();
     }
     
+//i can't create a generic list reader, furthemore i create this 3, but all do the same
+// the paramether is for not only use when i need to iterate among the main list, also every list i found in the way(including list that linQ returns)
 
 public static void showDrivers(List<Driver> drivers){
     Util.Title("Lista de conductores",ConsoleColor.DarkBlue);

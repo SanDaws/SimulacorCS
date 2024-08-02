@@ -7,10 +7,15 @@ namespace Simulacro.Models;
 
     public static class Menues
     {
-               //Main menue for the User interface
+        /*important thig:
+        this menues works by recursivness
+        that means i got no loops in for the running of the menues, it will always iterate the same function by itself
+        */
+
+        //Main menue for the User interface
         public static void MainMenu(){
-            Util.Title("TransRiwi",ConsoleColor.Magenta);
-            Console.Write($@"
+        Util.Title("TransRiwi",ConsoleColor.Magenta);//fancy Tittles
+        Console.Write($@"
         oprima el numero de opcion  a la que decea acceder
         1: Conductores
         2: Pasajeros
@@ -18,6 +23,7 @@ namespace Simulacro.Models;
 
         0: Salir
         ");
+        //all the menues works the same
             ConsoleKeyInfo response = Console.ReadKey();
             switch (response.Key)
             {

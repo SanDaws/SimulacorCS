@@ -9,7 +9,7 @@ public class Customer:User
     //attributes
     public string MembershipLevel;
     public string PreferedPaymentMethod;
-    // i will pass and create a exception [SafeDateOnyConvertor] to avoid non existing dates
+    // Cosntructor
     public Customer(string name,string lastName,string typeDocument,string identificationNumber,string email,string preferedPaymentMethod,string phoneNumber,string Adreess,DateOnly bday ):
     base(name,lastName,typeDocument,identificationNumber,email,phoneNumber,Adreess,bday){
 
@@ -17,16 +17,21 @@ public class Customer:User
         PreferedPaymentMethod=preferedPaymentMethod;
 
     }
-    public void UpdateMembershipLevel(){
+    //methods
+
+    public void UpdateMembershipLevel(){//Establish  the (MembershipLevel) attribute whit a pull of pre-Established options
+       //options menu
         Console.WriteLine($@"
         {Name + " " + LastName}, sera pormovido a la posicion:
+        Posicion actual:{MembershipLevel}
+
         1: Platino
         2: Oro
         3: Plata
         4: Bronce
 
-        0: cancel
         ");
+        //selection space
         ConsoleKeyInfo response = Console.ReadKey();
         switch (response.Key)
         {
@@ -42,11 +47,6 @@ public class Customer:User
             case ConsoleKey.D4://Option 4
                 MembershipLevel = "Bronce";
                 break;
-            case ConsoleKey.D0:// Retunr to main menu
-
-                Util.RedText("Operaion cancleada");
-                Menues.ReturnToMainMenu();
-                break;
             default:
                 Console.WriteLine("opcion no valida");
                 UpdateMembershipLevel();
@@ -54,10 +54,10 @@ public class Customer:User
                 break;
         }
     }
-
-    public void ShowCustomerDetails(){
-        base.ShowDetails();
-        Console.WriteLine($"{MembershipLevel,10}{PreferedPaymentMethod,10}");
+    
+    public void ShowCustomerDetails(){//formating all the attributes of the class
+        ShowDetails();//inherit method of printing
+        Console.WriteLine($"{MembershipLevel,10}{PreferedPaymentMethod,10}");//adition of the native attributes
     }
 
 }
