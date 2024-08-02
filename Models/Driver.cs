@@ -14,13 +14,13 @@ public class Driver:User
     //methods
     //cosntructor
 
-    public Driver(string name,string lastName,string typeDocument,string identificationNumber,string email,string phoneNumber,string Adreess,DateOnly bday,string licenesNumber,string licenseCategory, int drivingExperience ):
+    public Driver(string name,string lastName,string typeDocument,string identificationNumber,string email,string phoneNumber,string Adreess,DateOnly bday,string licenesNumber, int drivingExperience ):
     base(name,lastName,typeDocument,identificationNumber,email,phoneNumber,Adreess,bday){
     LicenesNumber=licenesNumber;
-    LicenseCategory=licenseCategory;
+    LicenseCategory=LicenseCategoryKind();
     DrivingExperience=drivingExperience;
     }
-public static string LicenseCategoryKind(){
+public  string LicenseCategoryKind(){
     Console.WriteLine($@"
     Categoria de Licensia:
     1: A2
@@ -39,6 +39,8 @@ public static string LicenseCategoryKind(){
     }
     return "A2";
 }
+
+//create a list that returns index of the driver
 }
 
 
