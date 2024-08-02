@@ -3,131 +3,101 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Simulacro.Models
+namespace Simulacro.Models;
+
+public static class UserOperations
 {
-    public static class UserOperations
-    {
-        // class dedicated to the creation modification and 
-        public static void CreateDriver(){
-            Util.Title("Nuevo Estudiante",ConsoleColor.DarkGreen);
-            //nombre
-            Console.Write("Nombre del estudiante: ");
-            string Nombre= Exceptions.AntiEMptyorNull();
-            //apellido
-            Console.Write("Apellido: ");
-            string Apellido= Exceptions.AntiEMptyorNull();
-            //tipo de docuemto
-            Console.Write("Tipo de Documento: ");
-            string TipoDocumento= Exceptions.AntiEMptyorNull();
-            //numero de docuemto
-            Console.Write("Numero de Documento: ");
-            string NumeroDocumento= Exceptions.AntiEMptyorNull();
-        // email
-            Console.Write("Email: ");
-            string Email= Exceptions.AntiEMptyorNull();
-            //acudiente
-            Console.Write("Nombre del Acudeinte: ");
-            string NombreAcudiente= Exceptions.AntiEMptyorNull();
-            //telefono
-            Console.Write("Numero de telefono: ");
-            string Telefono= Exceptions.AntiEMptyorNull();
-            //telefono
-            Console.Write("Curso Actual: ");
-            string CursoActual= Exceptions.AntiEMptyorNull().ToUpper();
-        }
-        public static void CreateVehicle(){}
-        public static void Createcustomer(){}
+    // class dedicated to the operations of the user in the user interface
+    public static void CreateDriver(){
+        Util.Title("Nuevo Conductor",ConsoleColor.DarkGreen);
+        //nombre
+        Console.Write("Nombre del Conductor: ");
+        string name= Exceptions.AntiEMptyorNull();
+        //apellido
+        Console.Write("Apellido: ");
+        string lastName= Exceptions.AntiEMptyorNull();
+        //Type of documet
+        Console.Write("Tipo de Documento: ");
+        string typeDocument= Exceptions.AntiEMptyorNull();
+        //Document number
+        Console.Write("Numero de Documento: ");
+        string identificationNumber= Exceptions.AntiEMptyorNull();
+    // email
+        Console.Write("Email: ");
+        string email= Exceptions.AntiEMptyorNull();
+        //phone
+        Console.Write("Numero de telefono: ");
+        string phone= Exceptions.AntiEMptyorNull();
+        //Adreess
+        Console.Write("Direccion: ");
+        string Adreess= Exceptions.AntiEMptyorNull().ToUpper();
+        DateOnly bday= Exceptions.SafeDateonly();
+
+        string licenseCategory= Driver.LicenseCategoryKind();
+        Console.Write("Numero de Licensia: ");
+        string licenseNumber= Exceptions.AntiEMptyorNull();
+
+        int experience= Exceptions.safeInt("Años de experiencia");
+
+        Database.Database.drivers.Add(new Driver(name,lastName,typeDocument,identificationNumber,email,phone,Adreess,bday,licenseNumber,licenseCategory,experience));
         
+        Util.GreenText("Conductor registrado Exitosamente");
+        Menues.ReturnToMainMenu();
 
-             //   recorrido de listas en busquedas     profesores
-        public static void ListarProfesores(List<Profesor> profesores, string texto){
-            Title(texto,ConsoleColor.DarkGreen);
-
-            foreach (var profesor in profesores)
-            {
-                profesor.MostrarDetalles();
-            }
-            Console.WriteLine(" oprima cualquier boton para volver al menu...");
-            Console.ReadKey();
-            Menuprofesores();
-        }
-        public static void ListarEstudiantes(List<Estudiante> estudiantes,string texto){
-            Title(texto,ConsoleColor.DarkGreen);
-
-            foreach (var estudiante in estudiantes)
-            {
-                estudiante.MostrarDetalles();
-            }
-            Console.WriteLine(" oprima cualquier boton para volver al menu...");
-            Console.ReadKey();
-            StudentMEnu();
-        }
-        
-        //estas al ser funciones de menu de usuario, las pondre aqui en lugar de ponerlas dentro de la clase administradorapp
-        public static  void NuevoEstudiante(){
-            
-            //fecha
-            int dia= Exceptions.safeInt("Dia de Nacimiento: ");
-            int month= Exceptions.safeInt("Mes de Nacimiento: " );
-            int year= Exceptions.safeInt("Año de Nacimiento: ");
-            
-            
-           
-
-            Console.WriteLine(" oprima cualquier boton para volver al menu...");
-            Console.ReadKey();
-            
-        } 
-        //creacion nuevo profesor
-        public static  void NuevoProfesor(){
-            Title("Nuevo Profesor",ConsoleColor.DarkGreen);
-            //nombre
-            Console.Write("Nombre del Profesor: ");
-            string Nombre= Exceptions.AntiEMptyorNull();
-            //apellido
-            Console.Write("Apellido: ");
-            string Apellido= Exceptions.AntiEMptyorNull();
-            //tipo de docuemto
-            Console.Write("Tipo de Documento: ");
-            string TipoDocumento= Exceptions.AntiEMptyorNull();
-            //numero de docuemto
-            Console.Write("Numero de Documento: ");
-            string NumeroDocumento= Exceptions.AntiEMptyorNull();
-        // email
-            Console.Write("Email: ");
-            string Email= Exceptions.AntiEMptyorNull();
-            //acudiente
-            Console.Write("Nombre del Acudeinte: ");
-            string Asignatura= Exceptions.AntiEMptyorNull();
-            //telefono
-            Console.Write("Numero de telefono: ");
-            string Telefono= Exceptions.AntiEMptyorNull();
-            //Salario
-            double Salario= Exceptions.safeDouble("Salario");
-            //fecha de contratacion
-            int dia= Exceptions.safeInt("Dia decontratacion: ");
-            int month= Exceptions.safeInt("Mes de contratacion " );
-            int year= Exceptions.safeInt("Año decontratacion: ");
-
-            AdministradorApp.Profesores.Add(new Profesor(Nombre,Apellido,TipoDocumento,NumeroDocumento,Email,Telefono,Asignatura,Salario,dia,month,year));
-            
-            GreenText("Nuevo Profesor registrado satisfactoriamente");
-
-            Console.WriteLine(" oprima cualquier boton para volver al menu...");
-            Console.ReadKey();
-            StudentMEnu();
-        } 
-
-     public static void EditarNombrePRofesor(){
-        Uti.Title("Editar Profesor",ConsoleColor.Cyan);
-        Console.Write("Documento Del profesor ");
-            string Documento= Exceptions.AntiEMptyorNull();
-            Console.Write("Nombre del Profesor: ");
-            string NuevoNombre= Exceptions.AntiEMptyorNull();
-            Profesor.editarNombre(Documento,NuevoNombre);
-     }
-        
-
+    }
+    
+    public static void CreateVehicle(){
         
     }
+    public static void Createcustomer(){
+        Util.Title("Nuevo Conductor",ConsoleColor.DarkGreen);
+        //nombre
+        Console.Write("Nombre del Conductor: ");
+        string name= Exceptions.AntiEMptyorNull();
+        //apellido
+        Console.Write("Apellido: ");
+        string lastName= Exceptions.AntiEMptyorNull();
+        //Type of documet
+        Console.Write("Tipo de Documento: ");
+        string typeDocument= Exceptions.AntiEMptyorNull();
+        //Document number
+        Console.Write("Numero de Documento: ");
+        string identificationNumber= Exceptions.AntiEMptyorNull();
+    // email
+        Console.Write("Email: ");
+        string email= Exceptions.AntiEMptyorNull();
+        //phone
+        Console.Write("Numero de telefono: ");
+        string phone= Exceptions.AntiEMptyorNull();
+        //way to pay
+        Console.Write("Metodo Preferido De pago: ");
+        string preferedPaymentMethod= Exceptions.AntiEMptyorNull();
+        //Adreess
+        Console.Write("Direccion: ");
+        string Adreess= Exceptions.AntiEMptyorNull().ToUpper();
+        DateOnly bday= Exceptions.SafeDateonly();
+        
+
+
+
+        Database.Database.Customers.Add(new Customer(name,lastName,typeDocument,identificationNumber,email,preferedPaymentMethod,phone,Adreess,bday));
+        
+        Util.GreenText("Conductor registrado Exitosamente");
+        Menues.ReturnToMainMenu();
+    }
+    
+
+
+
+    public static void EditarNombrePRofesor(){
+    Uti.Title("Editar Profesor",ConsoleColor.Cyan);
+    Console.Write("Documento Del profesor ");
+        string Documento= Exceptions.AntiEMptyorNull();
+        Console.Write("Nombre del Profesor: ");
+        string NuevoNombre= Exceptions.AntiEMptyorNull();
+        Profesor.editarNombre(Documento,NuevoNombre);
+    }
+    
+
+    
 }
