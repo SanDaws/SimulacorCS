@@ -38,7 +38,7 @@ public static class exceptions
         }
         catch (FormatException)
         {
-            Uti.RedText("Respuesta No valida");
+            Util.RedText("Respuesta No valida");
             safeDouble("imposibe convertir, intente con un numero");
 
         }
@@ -53,7 +53,7 @@ public static class exceptions
             text=Console.ReadLine().Trim();
             if (string.IsNullOrWhiteSpace(text))
             {
-                Uti.RedText("Se prohibe texto vacio, ingrese datos validos: ");
+                Util.RedText("Se prohibe texto vacio, ingrese datos validos: ");
             }
         } while (string.IsNullOrWhiteSpace(text));
 
