@@ -38,5 +38,12 @@ namespace Simulacro.Models
             Util.GreenText("Registro de Vehiculo borrado Exitosamente");
 
         }
+
+        internal void showVehicleDetails()
+        {
+            
+
+            Console.WriteLine($"{Id,10}{LicensePlate,15}{VehicleType,12}{EngineNumber,10}{SerialNumber,20}{PeopleCapacity,10}{Owner.DriverName(),30}");
+        }
     }
 }
