@@ -57,10 +57,10 @@ namespace Simulacro.Models;
             switch (response.Key)
             {
                 case ConsoleKey.D1://case read
-                    
+                    UserOperations.showDrivers(Database.Database.drivers);
                     break;
                 case ConsoleKey.D2:// case create
-                    
+                    UserOperations.CreateDriver();
                     break;
                 case ConsoleKey.D3:// case Delete
                     
@@ -96,10 +96,10 @@ namespace Simulacro.Models;
             switch (response.Key)
             {
                 case ConsoleKey.D1://case read
-                    
+                    UserOperations.showCustomers(Database.Database.Customers);
                     break;
                 case ConsoleKey.D2:// case create
-                    
+                    UserOperations.Createcustomer();
                     break;
                 case ConsoleKey.D3:// case delete
                     
@@ -139,7 +139,7 @@ namespace Simulacro.Models;
             switch (response.Key)
             {
                 case ConsoleKey.D1://case list of vehicule
-                    
+                    UserOperations.showVehicles(Database.Database.vehicles);
                     break;
                 case ConsoleKey.D2:// case create vehicle
                     
