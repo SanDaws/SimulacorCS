@@ -87,6 +87,31 @@ public static class UserOperations
     }
     
 
+public static void showDrivers(List<Driver> drivers){
+    Util.Title("Lista de conductores",ConsoleColor.DarkBlue);
+    foreach (var driver in drivers)
+    {
+        driver.ShowDriverDetails();
+    }
+    Menues.ReturnToMainMenu();
+}
+public static void showCustomers(List<Customer>customers){
+    Util.Title("Lista de Pasajeros",ConsoleColor.DarkBlue);
+    foreach (var customer in customers)
+    {
+        customer.ShowCustomerDetails();
+    }
+    Menues.ReturnToMainMenu();
+}
+public static void showVehicles(List<Vehicle>vehicles){
+    Util.Title("Lista de Vehiculos",ConsoleColor.DarkBlue);
+    foreach (var vehicle in vehicles)
+    {
+        vehicle.showVehicleDetails();
+    }
+    Menues.ReturnToMainMenu();
+}
+
 
 
     // public static void EditarNombrePRofesor(){
