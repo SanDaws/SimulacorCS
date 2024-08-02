@@ -6,7 +6,7 @@ using Simulacro.Models;
 
 namespace Simulacro.Database;
 
-public static class Database
+public class Database
 {
     public static List<Customer> Customers= new List<Customer>();
     public static List<Vehicle> vehicles=new List<Vehicle>();
@@ -29,5 +29,9 @@ public static class Database
             }
         } while (true);
         return IdNew;
+    }
+    //burnedData creation
+    public static void BurnedData(){
+
     }
 }
