@@ -23,5 +23,8 @@ namespace Simulacro.Models
             PeopleCapacity=peopleCapacity;
             this.Owner=Owner;
         }
+        public void DeleteVehicle(int id){
+
+        }
     }
 }
