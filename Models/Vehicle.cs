@@ -13,7 +13,7 @@ namespace Simulacro.Models
         public string VehicleType;
         public string EngineNumber;
         public string SerialNumber;
-        public byte PeopleCapacity;//this may be a sbyte, for the memory optimization
+        public byte PeopleCapacity;//this should be using a sbyte, for the memory optimization
         public Driver Owner;
         // this is a asociation not a aggregartion beacuse it's required a Driver for the existance of a vehicle in the transport system
         public Vehicle(string licensePlate,string vehicleType, string engineNumber,string serialNumber,byte peopleCapacity,Driver Owner){
@@ -25,7 +25,7 @@ namespace Simulacro.Models
             PeopleCapacity=peopleCapacity;
             this.Owner=Owner;
         }
-        public void DeleteVehicle(int id){
+        public static void DeleteVehicle(int id){
             Vehicle? res = Database.Database.vehicles.FirstOrDefault(p => p.Id == id);
             if (res!= null)
             {
