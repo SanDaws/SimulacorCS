@@ -33,13 +33,13 @@ public static class UserOperations
         string Adreess= Exceptions.AntiEMptyorNull().ToUpper();
         DateOnly bday= Exceptions.SafeDateonly();
 
-        string licenseCategory= Driver.LicenseCategoryKind();
+        
         Console.Write("Numero de Licensia: ");
         string licenseNumber= Exceptions.AntiEMptyorNull();
 
         int experience= Exceptions.safeInt("Años de experiencia");
 
-        Database.Database.drivers.Add(new Driver(name,lastName,typeDocument,identificationNumber,email,phone,Adreess,bday,licenseNumber,licenseCategory,experience));
+        Database.Database.drivers.Add(new Driver(name,lastName,typeDocument,identificationNumber,email,phone,Adreess,bday,licenseNumber,experience));
         
         Util.GreenText("Conductor registrado Exitosamente");
         Menues.ReturnToMainMenu();
@@ -89,14 +89,14 @@ public static class UserOperations
 
 
 
-    public static void EditarNombrePRofesor(){
-    Uti.Title("Editar Profesor",ConsoleColor.Cyan);
-    Console.Write("Documento Del profesor ");
-        string Documento= Exceptions.AntiEMptyorNull();
-        Console.Write("Nombre del Profesor: ");
-        string NuevoNombre= Exceptions.AntiEMptyorNull();
-        Profesor.editarNombre(Documento,NuevoNombre);
-    }
+    // public static void EditarNombrePRofesor(){
+    // Uti.Title("Editar Profesor",ConsoleColor.Cyan);
+    // Console.Write("Documento Del profesor ");
+    //     string Documento= Exceptions.AntiEMptyorNull();
+    //     Console.Write("Nombre del Profesor: ");
+    //     string NuevoNombre= Exceptions.AntiEMptyorNull();
+    //     Profesor.editarNombre(Documento,NuevoNombre);
+    // }
     
 
     
