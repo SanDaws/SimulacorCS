@@ -29,7 +29,7 @@ public class User{
         BrithDate=b_Day;
 
     }
-    protected void ShowDetails(){
+    protected virtual void ShowDetails(){
         
         Console.Write($"{id,20}{Name +" "+ LastName,30}{TypeDocument,10}:{IdentificationNumber,15}{CalculateAge(),5}{Email,50}{PhoneNumber,20}{Adreess,30}");
     }
