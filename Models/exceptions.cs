@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Simulacro.Models;
 
-public static class exceptions
+public static class Exceptions
 {
     /*
     This class is dedicated to all humanity:
@@ -14,7 +14,7 @@ public static class exceptions
     public static int safeInt(string arg)
     {
         int option = 0;
-        Console.Write(arg);
+        Console.Write(arg+": ");
         try
         {
             option = Convert.ToInt32(AntiEMptyorNull());
@@ -47,7 +47,7 @@ public static class exceptions
     }
 
     public static string AntiEMptyorNull(){
-            string text;
+            string? text;
         do
         {
             text=Console.ReadLine().Trim();
@@ -58,5 +58,38 @@ public static class exceptions
         } while (string.IsNullOrWhiteSpace(text));
 
         return text;
+    }
+    public static DateOnly SafeDateonly()
+    {
+
+        //Data obtainig
+        DateOnly now = DateOnly.FromDateTime(DateTime.Now);
+        DateOnly thatDay = new DateOnly();
+
+        int day = safeInt("Dia de Naciemiento");
+
+
+
+        int month = safeInt("Mes de Naciemiento");
+        int year = safeInt("Año de nacimiento");
+
+        try
+        {
+            thatDay = new DateOnly(year, month, day);
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            Util.RedText("Fecha no existente");
+            SafeDateonly();
+        }
+        //probe that the year is not for the future
+        if (thatDay.Year > now.Year)
+        {
+            Util.RedText("Fecha no existente(fecha futura)");
+            SafeDateonly();
+
+        }
+        return thatDay;
+
     }
 }
