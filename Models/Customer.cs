@@ -55,5 +55,9 @@ public class Customer:User
         }
     }
 
+    public void ShowCustomerDetails(){
+        base.ShowDetails();
+        Console.WriteLine($"{MembershipLevel,10}{PreferedPaymentMethod,10}");
+    }
 
 }
