@@ -12,17 +12,18 @@ namespace Simulacro.Models;
             Util.Title("TransRiwi",ConsoleColor.Magenta);
             Console.Write($@"
         oprima el numero de opcion  a la que decea acceder
-        1: Estudiantes
-        2: Profesores
-        0: Salir");
+        1: Conductores
+        2: Pasajeros
+        0: Salir
+        ");
             ConsoleKeyInfo response = Console.ReadKey();
             switch (response.Key)
             {
                 case ConsoleKey.D1://
-                    StudentMEnu();
+                    DriverMenu();
                     break;
                 case ConsoleKey.D2:// hacia menu Profesores
-                    Menuprofesores();
+                    CustomerMenu();
                     break;
                 case ConsoleKey.D0:// Salida
 
@@ -36,15 +37,16 @@ namespace Simulacro.Models;
             }
         }
         //second menue if its necessary
-        public static void StudentMEnu(){
-            Util.Title("Estudiantes",ConsoleColor.Blue);
+        public static void DriverMenu(){
+            Util.Title("Conductores",ConsoleColor.Blue);
             Console.Write($@"
         oprima el numero de opcion  a la que decea acceder
         1: Lista de estudiantes
         2: Nuevo registro Estudiante
         3: eliminar registro Estudiante
         4: Promedio Del Estudiante
-        0: Salir");
+        0: Salir
+        ");
             ConsoleKeyInfo response = Console.ReadKey();
             switch (response.Key)
             {
@@ -67,13 +69,13 @@ namespace Simulacro.Models;
 
                 default:
                     Console.WriteLine("opcion no valida");
-                    StudentMEnu();
+                    DriverMenu();
                     break;
             }
         }
 
-        public static void Menuprofesores(){
-            Util.Title("Profesores",ConsoleColor.Blue);
+        public static void CustomerMenu(){
+            Util.Title("Pasajeros",ConsoleColor.Blue);
             Console.Write($@"
         oprima el numero de opcion  a la que decea acceder
         1: Lista De Profesores
@@ -81,7 +83,8 @@ namespace Simulacro.Models;
         3: eliminar Registro de Profesor
         4: Salario Profesor
         5: editar nombre profesor
-        0: Salir");
+        0: Salir
+        ");
             ConsoleKeyInfo response = Console.ReadKey();
             switch (response.Key)
             {
@@ -107,13 +110,13 @@ namespace Simulacro.Models;
 
                 default:
                     Console.WriteLine("opcion no valida");
-                    Menuprofesores();
+                    CustomerMenu();
 
                     break;
             }
         }
         //generic function to create  returns to the main menu, used for user experience
-        public static void ReturnToMenu(){
+        public static void ReturnToMainMenu(){
             Console.WriteLine(" oprima cualquier boton para volver al menu...");
             Console.ReadKey();
             MainMEnu();
