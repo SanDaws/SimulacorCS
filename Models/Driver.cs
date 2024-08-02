@@ -40,7 +40,23 @@ public  string LicenseCategoryKind(){
     return "A2";
 }
 
+public void ShowDriverDetails(){
+        base.ShowDetails();
+        Console.WriteLine($"{LicenseCategory,10}{LicenesNumber,10}{DrivingExperience}");
+    }
+
 //create a list that returns index of the driver
+public string DriverName(){
+    return $"{Name+" "+LastName}";
+}
+
+public void DriversList(List<Driver> drivers){
+    foreach (var driver in drivers)
+    {
+        Console.WriteLine($"{drivers.IndexOf(driver)}{DriverName()}");
+    }
+}
+
 }
 
 
