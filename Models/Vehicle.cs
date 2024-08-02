@@ -26,6 +26,16 @@ namespace Simulacro.Models
             this.Owner=Owner;
         }
         public void DeleteVehicle(int id){
+            Vehicle? res = Database.Database.vehicles.FirstOrDefault(p => p.Id == id);
+            if (res!= null)
+            {
+                Database.Database.vehicles.Remove(res);
+            }
+            else
+            {
+                Util.RedText("Registro No encotrado");
+            }
+            Util.GreenText("Registro de Vehiculo borrado Exitosamente");
 
         }
     }
