@@ -17,7 +17,44 @@ public class Customer:User
         PreferedPaymentMethod=preferedPaymentMethod;
 
     }
-    public void UpdateMembershipLevel(){}//ask how to implement
+    public void UpdateMembershipLevel(){
+        Util.Title("Mejora De Membresia", ConsoleColor.DarkYellow);
+        Console.Write($@"
+        {Name + " " + LastName}, sera pormovido a la posicion:
+        1: Platino
+        2: Oro
+        3: Plata
+        4: Bronce
+
+        0: cancel
+        ");
+        ConsoleKeyInfo response = Console.ReadKey();
+        switch (response.Key)
+        {
+            case ConsoleKey.D1://Option 1
+                MembershipLevel = "Platino";
+                break;
+            case ConsoleKey.D2:// Option 2
+                MembershipLevel = "Oro";
+                break;
+            case ConsoleKey.D3://Option 3
+                MembershipLevel = "Plata";
+                break;
+            case ConsoleKey.D4://Option 4
+                MembershipLevel = "Bronce";
+                break;
+            case ConsoleKey.D0:// Retunr to main menu
+
+                Util.RedText("Operaion cancleada");
+                Menues.ReturnToMainMenu();
+                break;
+            default:
+                Console.WriteLine("opcion no valida");
+                UpdateMembershipLevel();
+
+                break;
+        }
+    }
 
 
 }
