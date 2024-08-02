@@ -21,7 +21,7 @@ public static class Exceptions
         }
         catch (FormatException)
         {
-            Console.WriteLine("Respuesta No valida");
+            Util.RedText("Respuesta No valida");
             safeInt("imposibe convertir, intente con un numero");
 
         }
