@@ -53,10 +53,10 @@ public string DriverName(){
     return $"{Name+" "+LastName}";
 }
 //this is used in the register of the drivers, and adding as object to de Vehicle objects
-public void DriversList(List<Driver> drivers){//merely visual function, but usefull for user interface
+public static void DriversList(List<Driver> drivers){//merely visual function, but usefull for user interface
     foreach (var driver in drivers)
     {
-        Console.WriteLine($"{drivers.IndexOf(driver)}{DriverName()}");
+        Console.WriteLine($"|{drivers.IndexOf(driver),20}|{driver.DriverName(),40}|");
     }
 }
 
