@@ -17,10 +17,10 @@ namespace Simulacro.Models
         public Driver Owner;
         // this is a asociation not a aggregartion beacuse it's required a Driver for the existance of a vehicle in the transport system
         //cosntructor
-        public Vehicle(string licensePlate,string vehicleType, string engineNumber,string serialNumber,byte peopleCapacity,Driver Owner){
+        public Vehicle(string licensePlate, string engineNumber,string serialNumber,byte peopleCapacity,Driver Owner){
             Id= Database.Database.VehicleIdGenerator();
             LicensePlate=licensePlate;
-            VehicleType=vehicleType;
+            VehicleType=VehicleTypes();
             EngineNumber=engineNumber;
             SerialNumber=serialNumber;
             PeopleCapacity=peopleCapacity;
@@ -41,9 +41,38 @@ namespace Simulacro.Models
 
         }
         //shows its own attributes
-        internal void showVehicleDetails()
+        public void showVehicleDetails()
         {
             Console.WriteLine($"{Id,10}{LicensePlate,15}{VehicleType,12}{EngineNumber,10}{SerialNumber,20}{PeopleCapacity,10}{Owner.DriverName(),30}");
+        }
+
+        public string VehicleTypes()
+        {
+            Console.WriteLine($@"
+    Categoria de Licensia:
+    1: Moto
+    2: Carro
+    3: Camioneta
+    4: Microbus
+    ");
+            ConsoleKeyInfo response = Console.ReadKey();
+            switch (response.Key)
+            {
+                case ConsoleKey.D1:
+                    return "Moto";
+                case ConsoleKey.D2:
+                    return "Carro";
+                case ConsoleKey.D3:
+                    return "Camioneta";
+                case ConsoleKey.D4:
+                    return "Microbus";
+                default:
+                    Util.RedText("opcion no valida o existente");
+                    VehicleTypes();
+                    break;
+            }
+            return "Moto";
+
         }
     }
 }
