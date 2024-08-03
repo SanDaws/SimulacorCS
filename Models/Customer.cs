@@ -53,6 +53,7 @@ public class Customer:User
 
                 break;
         }
+        Console.Clear();
     }
     
     public void ShowCustomerDetails(){//formating all the attributes of the class

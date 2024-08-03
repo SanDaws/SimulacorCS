@@ -175,6 +175,7 @@ namespace Simulacro.Models;
         public static void ReturnToMainMenu(){
             Console.WriteLine(" oprima cualquier boton para volver al menu...");
             Console.ReadKey();
+            Console.Clear();
             MainMenu();
         }
     }

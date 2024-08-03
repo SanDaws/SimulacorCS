@@ -29,8 +29,10 @@ public  string LicenseCategoryKind(){
     switch (response.Key)
     {
         case ConsoleKey.D1:
+        Console.Clear();
         return "A2";
         case ConsoleKey.D2:
+        Console.Clear();
         return "B2";
         default:
         Util.RedText("opcion no valida o existente");

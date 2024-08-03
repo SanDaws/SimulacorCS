@@ -59,18 +59,23 @@ namespace Simulacro.Models
             switch (response.Key)
             {
                 case ConsoleKey.D1:
+                Console.Clear();
                     return "Moto";
                 case ConsoleKey.D2:
+                Console.Clear();
                     return "Carro";
                 case ConsoleKey.D3:
+                Console.Clear();
                     return "Camioneta";
                 case ConsoleKey.D4:
+                Console.Clear();
                     return "Microbus";
                 default:
                     Util.RedText("opcion no valida o existente");
                     VehicleTypes();
                     break;
             }
+            Console.Clear();
             return "Moto";
 
         }
