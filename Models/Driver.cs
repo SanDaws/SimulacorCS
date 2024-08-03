@@ -43,7 +43,7 @@ public  string LicenseCategoryKind(){
 public void ShowDriverDetails(){
     
         ShowDetails();//because of his level of protection, you cant override this funcion, in my way to not find out losing time, i just callit and add what  i need
-        Console.WriteLine($"{LicenseCategory,10}{LicenesNumber,10}{DrivingExperience}");// adition at the end of the console line
+        Console.WriteLine($"{LicenseCategory,10}{LicenesNumber,15}{DrivingExperience,4}");// adition at the end of the console line
     }
 
 //This is usefull for some searches

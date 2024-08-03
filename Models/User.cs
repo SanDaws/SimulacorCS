@@ -34,7 +34,7 @@ public class User{
     //shows all the data of this class
     protected void ShowDetails(){
         
-        Console.Write($"{id,20}{Name +" "+ LastName,30}{TypeDocument,10}:{IdentificationNumber,15}{CalculateAge(),5}{Email,50}{PhoneNumber,20}{Adreess,30}");
+        Console.Write($"{id,20}{Name +" "+ LastName,30}{TypeDocument.ToUpper(),4}:{IdentificationNumber,15}{CalculateAge(),4}{Email,30}{PhoneNumber,15}{Adreess,25}");
     }
 //only returns a simple date comparison
     protected int CalculateAge(){
