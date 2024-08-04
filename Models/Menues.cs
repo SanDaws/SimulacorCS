@@ -148,7 +148,7 @@ namespace Simulacro.Models;
                     UserOperations.showVehicles(Database.Database.vehicles);
                     break;
                 case ConsoleKey.D2:// case create vehicle
-                    
+                    UserOperations.CreateVehicle();
                     break;
                 case ConsoleKey.D3:// case delete vehicle
                     
