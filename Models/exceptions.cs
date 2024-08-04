@@ -89,4 +89,23 @@ public static class Exceptions
         return thatDay;//it wilñl return a complete date 
 
     }
+    public static byte SafeByte(string arg){
+        byte option= 0;
+        Console.Write(arg+": ");
+        try
+        {
+            option = Convert.ToByte(AntiEMptyorNull());
+        }
+        catch (FormatException)
+        {
+            Util.RedText("Respuesta No valida");
+            SafeDouble($"imposibe convertir, {arg}");
+
+        }
+        catch(ArgumentOutOfRangeException){
+            Util.RedText("Respuesta No valida(Numero Demasiado alto)");
+            SafeDouble($"imposibe convertir, {arg}");
+        }
+        return option;
+    }
 }
