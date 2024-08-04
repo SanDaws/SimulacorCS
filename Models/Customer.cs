@@ -13,8 +13,8 @@ public class Customer:User
     public Customer(string name,string lastName,string typeDocument,string identificationNumber,string email,string preferedPaymentMethod,string phoneNumber,string Adreess,DateOnly bday ):
     base(name,lastName,typeDocument,identificationNumber,email,phoneNumber,Adreess,bday){
 
-        UpdateMembershipLevel();
         PreferedPaymentMethod=preferedPaymentMethod;
+        UpdateMembershipLevel();
 
     }
     //methods
