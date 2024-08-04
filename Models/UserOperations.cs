@@ -47,6 +47,19 @@ public static class UserOperations
     }
     
     public static void CreateVehicle(){
+        //plate
+        Console.Write("Placa del vehiculo: ");
+        string plate=Exceptions.AntiEMptyorNull();
+        //engineNumber
+         Console.Write("Serial/Numero del motor: ");
+        string engineNumber=Exceptions.AntiEMptyorNull();
+        //Serial number
+        Console.Write("Numero serial: ");
+        string serialNumber= Exceptions.AntiEMptyorNull();
+        //capacity
+        byte capacity= Exceptions.SafeByte("Capacidad maxima del vehiculo");
+
+        Database.Database.vehicles.Add(new Vehicle(plate,engineNumber,serialNumber,capacity));
         
     }
     public static void Createcustomer(){
